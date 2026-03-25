@@ -3,27 +3,28 @@ import type { FormEvent } from 'react'
 import { supabase } from '../lib/supabase'
 import { useReveal } from '../hooks/useReveal'
 
-const checkboxOptions = [
-  "I'm spending too much time consuming content and not enough acting on it",
-  "I keep missing important industry shifts until it's too late",
-  "I want to know what's working for other operators in my space right now",
-  "I need a faster way to brief myself (or my team) every morning",
-  "I'm interested in cross-source pattern detection (not just single-article summaries)",
-  "I heard about it from someone I trust",
+const CHECKBOX_OPTIONS = [
+  { key: 'too_much_content',  label: "I'm spending too much time consuming content and not enough acting on it" },
+  { key: 'missing_shifts',    label: "I keep missing important industry shifts until it's too late" },
+  { key: 'ahead_of_trends',   label: "I want to be ahead of topics before everyone in my niche covers them" },
+  { key: 'competitor_edge',   label: "I want to find opportunities my competitors haven't spotted yet" },
+  { key: 'morning_brief',     label: "I need a faster way to brief myself or my team every morning" },
+  { key: 'overwhelmed',       label: "I'm overwhelmed by what to pay attention to every day" },
+  { key: 'pattern_detection', label: "I want to see patterns across multiple sources, not just react to single articles" },
 ]
 
 export default function WaitlistForm() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [checkedOptions, setCheckedOptions] = useState<string[]>([])
+  const [checkedKeys, setCheckedKeys] = useState<string[]>([])
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const ref = useReveal()
 
-  function toggleOption(option: string) {
-    setCheckedOptions(prev =>
-      prev.includes(option) ? prev.filter(o => o !== option) : [...prev, option]
+  function toggleKey(key: string) {
+    setCheckedKeys(prev =>
+      prev.includes(key) ? prev.filter(k => k !== key) : [...prev, key]
     )
   }
 
@@ -31,15 +32,53 @@ export default function WaitlistForm() {
     e.preventDefault()
     setError('')
     setLoading(true)
-    const reason = checkedOptions.join(', ')
+
+    // Capture UTM params + referrer
+    const params = new URLSearchParams(window.location.search)
+    const utm_source   = params.get('utm_source')   || null
+    const utm_medium   = params.get('utm_medium')   || null
+    const utm_campaign = params.get('utm_campaign') || null
+    const utm_content  = params.get('utm_content')  || null
+    const utm_term     = params.get('utm_term')     || null
+    const referrer     = document.referrer           || null
+
+    const reason = checkedKeys.join(',')
+
     try {
       const { error: dbError } = await supabase.from('signalscout_waitlist').insert([{
-        full_name: name,
+        full_name:    name,
         email,
         reason,
-        created_at: new Date().toISOString(),
+        utm_source,
+        utm_medium,
+        utm_campaign,
+        utm_content,
+        utm_term,
+        referrer,
       }])
-      if (dbError) throw dbError
+
+      if (dbError) {
+        // Duplicate email — Postgres unique constraint violation
+        if (dbError.code === '23505') {
+          setError("You're already on the list! We'll be in touch.")
+          setLoading(false)
+          return
+        }
+        throw dbError
+      }
+
+      // Fire confirmation + notification emails server-side
+      try {
+        await fetch('/api/waitlist-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email }),
+        })
+      } catch {
+        // Non-fatal — DB insert succeeded, email failure shouldn't block confirmation
+        console.error('Email send failed (non-fatal)')
+      }
+
       setSubmitted(true)
     } catch (err) {
       console.error(err)
@@ -55,8 +94,10 @@ export default function WaitlistForm() {
         <div className="max-w-md mx-auto text-center glass-card p-10 relative overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg, #7C3AED, #A855F7)' }} />
           <div className="text-4xl mb-4">🎯</div>
-          <h2 className="section-heading text-xl text-white mb-2">You're on the list.</h2>
-          <p className="text-white/50 text-sm">We'll reach out when your spot opens up.</p>
+          <h2 className="section-heading text-xl text-white mb-3">You're in.</h2>
+          <p className="text-white/50 text-sm leading-relaxed">
+            We'll reach out when your founding access opens. Check your email — confirmation is on its way.
+          </p>
         </div>
       </section>
     )
@@ -69,9 +110,16 @@ export default function WaitlistForm() {
         className="reveal max-w-md mx-auto"
       >
         <div className="text-center mb-8">
-          <p className="section-label mb-3">Waitlist</p>
-          <h2 className="section-heading text-2xl sm:text-3xl text-white mb-2">Reserve your brief.</h2>
-          <p className="text-white/50 text-sm">SignalScout is launching soon. Join the waitlist and be first to get your daily intelligence brief.</p>
+          <p className="section-label mb-3">Founding Member Access</p>
+          <h2 className="section-heading text-2xl sm:text-3xl text-white mb-2">Get your edge before we open.</h2>
+          <p className="text-white/50 text-sm leading-relaxed">
+            SignalScout is launching soon. Founding members lock $29/mo for life — even when public pricing increases.
+          </p>
+          {/* Spot indicator */}
+          <div className="flex items-center justify-center gap-2 mt-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-accentLight animate-pulse" />
+            <span className="text-white/45 text-xs">Founding member spots are limited</span>
+          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="glass-card p-6 space-y-4 relative overflow-hidden">
@@ -104,26 +152,26 @@ export default function WaitlistForm() {
           <div>
             <label className="form-label mb-3 block">What drew you to SignalScout? (select all that apply)</label>
             <div className="space-y-2.5">
-              {checkboxOptions.map((option) => (
+              {CHECKBOX_OPTIONS.map(({ key, label }) => (
                 <label
-                  key={option}
+                  key={key}
                   className="flex items-start gap-3 cursor-pointer group"
                 >
                   <div className="relative shrink-0 mt-0.5">
                     <input
                       type="checkbox"
                       className="sr-only"
-                      checked={checkedOptions.includes(option)}
-                      onChange={() => toggleOption(option)}
+                      checked={checkedKeys.includes(key)}
+                      onChange={() => toggleKey(key)}
                     />
                     <div
                       className="w-5 h-5 rounded transition-all duration-150 flex items-center justify-center"
                       style={{
-                        background: checkedOptions.includes(option) ? 'rgba(124,58,237,0.35)' : 'rgba(255,255,255,0.06)',
-                        border: checkedOptions.includes(option) ? '1.5px solid #A855F7' : '1.5px solid rgba(255,255,255,0.2)',
+                        background: checkedKeys.includes(key) ? 'rgba(124,58,237,0.35)' : 'rgba(255,255,255,0.06)',
+                        border: checkedKeys.includes(key) ? '1.5px solid #A855F7' : '1.5px solid rgba(255,255,255,0.2)',
                       }}
                     >
-                      {checkedOptions.includes(option) && (
+                      {checkedKeys.includes(key) && (
                         <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
                           <path d="M1 4l2.5 2.5L9 1" stroke="#A855F7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
@@ -131,12 +179,17 @@ export default function WaitlistForm() {
                     </div>
                   </div>
                   <span className="text-white/65 text-sm leading-snug group-hover:text-white/85 transition-colors duration-150">
-                    {option}
+                    {label}
                   </span>
                 </label>
               ))}
             </div>
           </div>
+
+          {/* Pre-CTA motivator */}
+          <p className="text-white/35 text-xs italic text-center pt-1">
+            Every morning you don't have this, someone in your space does.
+          </p>
 
           {error && (
             <div className="rounded-lg px-4 py-3 text-sm" style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', color: '#FCA5A5' }}>
@@ -150,7 +203,7 @@ export default function WaitlistForm() {
             className="btn-secondary w-full text-center block"
             style={{ opacity: loading ? 0.7 : 1, cursor: loading ? 'not-allowed' : 'pointer' }}
           >
-            {loading ? 'Joining...' : 'Join the Waitlist'}
+            {loading ? 'Reserving...' : 'Reserve My Founding Spot'}
           </button>
         </form>
       </div>

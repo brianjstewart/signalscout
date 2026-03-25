@@ -1,13 +1,12 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import OriginStory from './components/OriginStory'
-import HowItWorks from './components/HowItWorks'
 import BriefSections from './components/BriefSections'
-import Pricing from './components/Pricing'
+import HowItWorks from './components/HowItWorks'
 import DeliveryOptions from './components/DeliveryOptions'
-import SignupForm from './components/SignupForm'
-import WaitlistForm from './components/WaitlistForm'
+import OriginStory from './components/OriginStory'
+import Pricing from './components/Pricing'
 import FAQ from './components/FAQ'
+import WaitlistForm from './components/WaitlistForm'
 import Footer from './components/Footer'
 
 function App() {
@@ -16,14 +15,13 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <OriginStory />
-        <HowItWorks />
         <BriefSections />
-        <Pricing />
+        <HowItWorks />
         <DeliveryOptions />
-        <SignupForm />
-        <WaitlistForm />
+        <OriginStory />
+        <Pricing />
         <FAQ />
+        <WaitlistForm />
       </main>
       <Footer />
     </div>

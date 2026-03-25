@@ -4,7 +4,7 @@ const cards = [
   {
     label: 'What',
     title: 'The signal worth your attention',
-    description: 'The specific trend, framework, or insight worth your attention today — from full transcripts, not just headlines.',
+    description: 'The specific trend, framework, or insight that rose above the noise today. Not a summary of what was published — the one thing worth knowing and why.',
     gradient: 'rgba(124,58,237,0.18)',
   },
   {
@@ -15,14 +15,14 @@ const cards = [
   },
   {
     label: 'Potential',
-    title: 'Quantified opportunity',
-    description: 'What this is worth to a business at your stage. Not vague upside — real numbers from operators who\'ve done it.',
+    title: 'What this unlocks for you',
+    description: 'Whether you\'re running a business, a campaign, or a content channel — we quantify the upside. Real numbers, real outcomes, not vague possibility.',
     gradient: 'rgba(139,92,246,0.18)',
   },
   {
     label: 'First Move',
     title: 'One concrete action',
-    description: 'What to do this week, not someday. Every brief ends with a single, executable next step.',
+    description: 'What to do this week, not someday. Every brief ends with a single, specific next step you can take before your next meeting.',
     gradient: 'rgba(168,85,247,0.18)',
   },
 ]

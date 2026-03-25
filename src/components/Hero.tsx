@@ -24,15 +24,15 @@ export default function Hero() {
 
             {/* Headline */}
             <h1 className="section-heading text-4xl sm:text-5xl md:text-6xl leading-tight mb-6 text-white">
-              The signals that matter hit the internet last night.{' '}
+              The trends that matter to your business.{' '}
               <span style={{ background: 'linear-gradient(135deg, #7C3AED 0%, #A855F7 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline' }}>
-                We found the ones that matter to you.
+                Delivered every morning before you open your inbox.
               </span>
             </h1>
 
             {/* Subheadline */}
             <p className="text-lg md:text-xl text-white/65 max-w-2xl lg:max-w-none mx-auto leading-relaxed mb-10">
-              SignalScout scans articles, videos, case studies, docs, and emerging research across your industry — then delivers one synthesized brief every morning with the opportunities worth acting on. Five minutes. Zero noise.
+              SignalScout scans hundreds of expert sources across platforms — then distills everything into a personalized 5-minute brief built around your goals. You're not getting a summary. You're getting an intelligence layer.
             </p>
 
             {/* Single CTA */}
@@ -42,12 +42,11 @@ export default function Hero() {
 
             {/* Micro-note */}
             <p className="text-white/35 text-xs text-center lg:text-left mb-12">
-              $29/mo when we launch. No commitment to join the list.
+              $29/mo when we launch · Founding members lock this rate forever · No commitment to join the list
             </p>
 
             {/* Sample Brief Card */}
             <div className="glass-card max-w-xl mx-auto lg:mx-0 p-6 text-left relative overflow-hidden">
-              {/* Card content */}
               <div className="relative z-10">
                 {/* Card accent line */}
                 <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg, #7C3AED, #A855F7)' }} />
@@ -73,7 +72,7 @@ export default function Hero() {
                 <div className="space-y-4">
                   <BriefRow
                     label="What"
-                    text="Multiple independent sources — a long-form case study, a recent keynote transcript, and two separate industry analyses — all converged on the same insight this week: bundled offer structures are dramatically outperforming single-SKU pricing in direct-to-consumer categories. This isn't one person's opinion. It's a pattern showing up across formats and authors simultaneously."
+                    text="Bundled offer structures are dramatically outperforming single-SKU pricing in direct-to-consumer categories. This isn't one person's take — it's showing up independently across case studies, keynote transcripts, and industry analyses published this week."
                   />
                   <BriefRow
                     label="Why Now"
@@ -92,7 +91,34 @@ export default function Hero() {
             </div>
 
             {/* Micro stat */}
-            <p className="mt-6 text-white/30 text-xs text-center lg:text-left">No fluff. No filler. Every section is actionable.</p>
+            <p className="mt-6 text-white/30 text-xs text-center lg:text-left">
+              You're not getting a summary. You're getting an intelligence layer.
+            </p>
+          </div>
+
+          {/* Right: Hero image */}
+          <div className="flex-shrink-0 lg:w-[380px] xl:w-[420px]">
+            {/* Gradient border wrapper */}
+            <div
+              className="rounded-2xl p-px"
+              style={{ background: 'linear-gradient(135deg, rgba(124,58,237,0.5), rgba(168,85,247,0.3))' }}
+            >
+              <div className="rounded-2xl overflow-hidden relative">
+                {/* Purple tint overlay */}
+                <div
+                  className="absolute inset-0 z-10 rounded-2xl pointer-events-none"
+                  style={{ background: 'linear-gradient(135deg, rgba(124,58,237,0.12) 0%, transparent 60%)' }}
+                />
+                <img
+                  src="/hero-image.jpg"
+                  alt="Brian Stewart — Founder, SignalScout"
+                  className="w-full h-auto block"
+                  style={{
+                    boxShadow: '0 0 80px rgba(124,58,237,0.4), 0 0 160px rgba(124,58,237,0.15)',
+                  }}
+                />
+              </div>
+            </div>
           </div>
 
         </div>
