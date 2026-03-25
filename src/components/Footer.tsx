@@ -2,16 +2,25 @@ export default function Footer() {
   return (
     <footer className="py-10 px-6 border-t" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="font-display font-800 text-base tracking-wide"
-          style={{ background: 'linear-gradient(135deg, #7C3AED 0%, #A855F7 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+        {/* Logo */}
+        <div
+          className="font-display text-base tracking-wide"
+          style={{ background: 'linear-gradient(135deg, #7C3AED 0%, #A855F7 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontWeight: 800 }}
+        >
           SignalScout
         </div>
-        <p className="text-white/30 text-xs text-center">
+
+        {/* Copyright */}
+        <p className="text-white/25 text-xs text-center">
           © {new Date().getFullYear()} SignalScout. Built for operators who don't have time to miss things.
         </p>
-        <div className="flex gap-4 text-xs text-white/40">
-          <a href="#signup" className="hover:text-white/70 transition-colors">Get Started</a>
-          <a href="#waitlist" className="hover:text-white/70 transition-colors">Waitlist</a>
+
+        {/* Links */}
+        <div className="flex gap-5 text-xs text-white/35">
+          <a href="#how-it-works" className="hover:text-white/65 transition-colors">How It Works</a>
+          <a href="#pricing" className="hover:text-white/65 transition-colors">Pricing</a>
+          <a href="#signup" className="hover:text-white/65 transition-colors">Get Started</a>
+          <a href="#waitlist" className="hover:text-white/65 transition-colors">Waitlist</a>
         </div>
       </div>
     </footer>

@@ -1,44 +1,72 @@
+import { useReveal } from '../hooks/useReveal'
+
 const cards = [
   {
     label: 'What',
     title: 'The signal worth your attention',
     description: 'The specific trend, framework, or insight worth your attention today — extracted from transcripts, not just headlines.',
+    gradient: 'rgba(124,58,237,0.18)',
   },
   {
     label: 'Why Now',
     title: 'Market timing, not evergreen noise',
     description: 'Why this matters today, not six months ago. We surface what\'s moving right now so you act with context.',
+    gradient: 'rgba(109,40,217,0.18)',
   },
   {
     label: 'Potential',
     title: 'Quantified opportunity',
     description: 'What this is worth to a business at your stage. Not vague upside — real numbers from operators who\'ve done it.',
+    gradient: 'rgba(139,92,246,0.18)',
   },
   {
     label: 'First Move',
     title: 'One concrete action',
     description: 'What to do this week, not someday. Every brief ends with a single, executable next step.',
+    gradient: 'rgba(168,85,247,0.18)',
   },
 ]
 
 export default function BriefSections() {
+  const titleRef = useReveal()
+  const gridRef = useReveal(0.1)
+
   return (
     <section className="py-20 px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-14">
+        <div
+          ref={titleRef as React.RefObject<HTMLDivElement>}
+          className="reveal text-center mb-14"
+        >
           <p className="section-label mb-3">What's In Your Brief</p>
           <h2 className="section-heading text-3xl sm:text-4xl text-white">Four sections. Five minutes. Done.</h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div
+          ref={gridRef as React.RefObject<HTMLDivElement>}
+          className="reveal-stagger grid grid-cols-1 sm:grid-cols-2 gap-6"
+        >
           {cards.map((card, i) => (
-            <div key={i} className="glass-card p-6">
-              <div className="inline-block px-3 py-1 rounded mb-4"
-                style={{ background: 'rgba(124, 58, 237, 0.2)', color: '#A855F7', fontFamily: 'Montserrat', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+            <div
+              key={i}
+              className="glass-card p-6 group hover:border-accent/40 transition-all duration-300 hover:translate-y-[-2px]"
+            >
+              <div
+                className="inline-block px-3 py-1 rounded mb-4 font-display uppercase"
+                style={{
+                  background: card.gradient,
+                  color: '#A855F7',
+                  fontSize: '0.65rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.12em',
+                }}
+              >
                 {card.label}
               </div>
-              <h3 className="font-display font-700 text-white text-lg mb-2">{card.title}</h3>
-              <p className="text-white/60 text-sm leading-relaxed">{card.description}</p>
+              <h3 className="font-display text-white text-lg mb-2" style={{ fontWeight: 700 }}>
+                {card.title}
+              </h3>
+              <p className="text-white/55 text-sm leading-relaxed">{card.description}</p>
             </div>
           ))}
         </div>

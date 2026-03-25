@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { supabase } from '../lib/supabase'
+import { useReveal } from '../hooks/useReveal'
 
 export default function WaitlistForm() {
   const [name, setName] = useState('')
@@ -9,6 +10,7 @@ export default function WaitlistForm() {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const ref = useReveal()
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
@@ -34,10 +36,11 @@ export default function WaitlistForm() {
   if (submitted) {
     return (
       <section id="waitlist" className="py-20 px-6">
-        <div className="max-w-md mx-auto text-center glass-card p-10">
-          <div className="text-3xl mb-4">🎯</div>
+        <div className="max-w-md mx-auto text-center glass-card p-10 relative overflow-hidden">
+          <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg, #7C3AED, #A855F7)' }} />
+          <div className="text-4xl mb-4">🎯</div>
           <h2 className="section-heading text-xl text-white mb-2">You're on the list.</h2>
-          <p className="text-white/60 text-sm">We'll reach out when your spot opens up.</p>
+          <p className="text-white/50 text-sm">We'll reach out when your spot opens up.</p>
         </div>
       </section>
     )
@@ -45,36 +48,65 @@ export default function WaitlistForm() {
 
   return (
     <section id="waitlist" className="py-20 px-6">
-      <div className="max-w-md mx-auto">
+      <div
+        ref={ref as React.RefObject<HTMLDivElement>}
+        className="reveal max-w-md mx-auto"
+      >
         <div className="text-center mb-8">
           <p className="section-label mb-3">Waitlist</p>
           <h2 className="section-heading text-2xl sm:text-3xl text-white mb-2">Not ready yet?</h2>
-          <p className="text-white/60 text-sm">Reserve your spot. We'll let you know when it's time.</p>
+          <p className="text-white/50 text-sm">Reserve your spot. We'll reach out when it's time.</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="glass-card p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="glass-card p-6 space-y-4 relative overflow-hidden">
+          <div className="absolute top-0 left-0 right-0 h-[1px]" style={{ background: 'linear-gradient(90deg, transparent, rgba(168,85,247,0.3), transparent)' }} />
+
           <div>
             <label className="form-label">Name</label>
-            <input className="form-field" type="text" required placeholder="Your name"
-              value={name} onChange={e => setName(e.target.value)} />
+            <input
+              className="form-field"
+              type="text"
+              required
+              placeholder="Your name"
+              value={name}
+              onChange={e => setName(e.target.value)}
+            />
           </div>
+
           <div>
             <label className="form-label">Email</label>
-            <input className="form-field" type="email" required placeholder="you@example.com"
-              value={email} onChange={e => setEmail(e.target.value)} />
+            <input
+              className="form-field"
+              type="email"
+              required
+              placeholder="you@example.com"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
           </div>
+
           <div>
             <label className="form-label">What drew you to SignalScout?</label>
-            <textarea className="form-field min-h-[80px] resize-none"
+            <textarea
+              className="form-field min-h-[80px] resize-none"
               placeholder="I'm tired of missing content from creators I follow..."
-              value={reason} onChange={e => setReason(e.target.value)} />
+              value={reason}
+              onChange={e => setReason(e.target.value)}
+            />
           </div>
 
-          {error && <p className="text-red-400 text-sm">{error}</p>}
+          {error && (
+            <div className="rounded-lg px-4 py-3 text-sm" style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', color: '#FCA5A5' }}>
+              {error}
+            </div>
+          )}
 
-          <button type="submit" disabled={loading}
+          <button
+            type="submit"
+            disabled={loading}
             className="btn-secondary w-full text-center block"
-            style={{ opacity: loading ? 0.7 : 1, cursor: loading ? 'not-allowed' : 'pointer' }}>
+            style={{ opacity: loading ? 0.7 : 1, cursor: loading ? 'not-allowed' : 'pointer' }}
+          >
             {loading ? 'Joining...' : 'Join the Waitlist'}
           </button>
         </form>

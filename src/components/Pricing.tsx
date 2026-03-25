@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useReveal } from '../hooks/useReveal'
 
 const features = [
   'Daily personalized intelligence brief',
@@ -12,57 +13,83 @@ const features = [
 
 export default function Pricing() {
   const [annual, setAnnual] = useState(false)
+  const ref = useReveal()
 
   return (
     <section className="py-20 px-6" id="pricing">
-      <div className="max-w-lg mx-auto">
+      <div
+        ref={ref as React.RefObject<HTMLDivElement>}
+        className="reveal max-w-lg mx-auto"
+      >
         <div className="text-center mb-10">
           <p className="section-label mb-3">Pricing</p>
           <h2 className="section-heading text-3xl sm:text-4xl text-white mb-4">One plan. Everything included.</h2>
-          <p className="text-white/60">No tiers. No feature gating. Just the full brief, every morning.</p>
+          <p className="text-white/55">No tiers. No feature gating. Just the full brief, every morning.</p>
 
           {/* Annual toggle */}
           <div className="flex items-center justify-center gap-3 mt-6">
-            <span className={`text-sm ${!annual ? 'text-white' : 'text-white/40'}`}>Monthly</span>
+            <span className={`text-sm transition-colors ${!annual ? 'text-white' : 'text-white/40'}`}>Monthly</span>
             <button
               onClick={() => setAnnual(a => !a)}
-              className={`relative w-11 h-6 rounded-full transition-colors duration-200 focus:outline-none`}
+              className="relative w-11 h-6 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg"
               style={{ background: annual ? 'linear-gradient(135deg, #7C3AED 0%, #A855F7 100%)' : 'rgba(255,255,255,0.15)' }}
               aria-label="Toggle annual billing"
+              role="switch"
+              aria-checked={annual}
             >
-              <span className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white transition-transform duration-200 ${annual ? 'translate-x-5' : 'translate-x-0'}`} />
+              <span
+                className="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-sm transition-transform duration-200"
+                style={{ transform: annual ? 'translateX(20px)' : 'translateX(0)' }}
+              />
             </button>
-            <span className={`text-sm ${annual ? 'text-white' : 'text-white/40'}`}>
+            <span className={`text-sm transition-colors ${annual ? 'text-white' : 'text-white/40'}`}>
               Annual
-              <span className="ml-2 text-xs px-2 py-0.5 rounded-full" style={{ background: 'rgba(168,85,247,0.2)', color: '#A855F7' }}>Save $58</span>
+              <span
+                className="ml-2 text-xs px-2 py-0.5 rounded-full"
+                style={{ background: 'rgba(168,85,247,0.2)', color: '#A855F7' }}
+              >
+                Save $58
+              </span>
             </span>
           </div>
         </div>
 
-        {/* Single pricing card */}
+        {/* Single pricing card — gradient border */}
         <div className="rounded-2xl p-px" style={{ background: 'linear-gradient(135deg, #7C3AED 0%, #A855F7 100%)' }}>
-          <div className="rounded-2xl p-8" style={{ background: '#0F0F1A' }}>
+          <div className="rounded-2xl p-8 sm:p-10" style={{ background: '#0F0F1A' }}>
+            {/* Price */}
             <div className="flex items-end gap-2 mb-1">
-              <span className="font-display font-800 text-5xl text-white">
+              <span
+                className="font-display text-5xl text-white transition-all duration-300"
+                style={{ fontWeight: 800 }}
+              >
                 {annual ? '$290' : '$29'}
               </span>
-              <span className="text-white/50 text-lg mb-1.5">{annual ? '/yr' : '/mo'}</span>
+              <span className="text-white/45 text-lg mb-2">{annual ? '/yr' : '/mo'}</span>
             </div>
-            {annual && (
-              <p className="text-sm text-accentLight mb-2">That's $24.17/mo — you save $58</p>
-            )}
-            <p className="text-white/50 text-sm mb-8">Billed {annual ? 'annually' : 'monthly'}. Cancel anytime.</p>
 
+            {annual && (
+              <p className="text-sm mb-2" style={{ color: '#A855F7' }}>
+                That's $24.17/mo — you save $58
+              </p>
+            )}
+            <p className="text-white/40 text-sm mb-8">
+              Billed {annual ? 'annually' : 'monthly'}. Cancel anytime.
+            </p>
+
+            {/* Features */}
             <ul className="space-y-3 mb-8">
               {features.map((f, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <span className="mt-0.5 shrink-0 w-4 h-4 rounded-full flex items-center justify-center"
-                    style={{ background: 'rgba(124, 58, 237, 0.25)' }}>
+                  <span
+                    className="mt-0.5 shrink-0 w-5 h-5 rounded-full flex items-center justify-center"
+                    style={{ background: 'rgba(124, 58, 237, 0.25)' }}
+                  >
                     <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
                       <path d="M1 4l2.5 2.5L9 1" stroke="#A855F7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
-                  <span className="text-white/80 text-sm leading-snug">{f}</span>
+                  <span className="text-white/75 text-sm leading-snug">{f}</span>
                 </li>
               ))}
             </ul>
@@ -70,6 +97,8 @@ export default function Pricing() {
             <a href="#signup" className="btn-primary w-full text-center block">
               Start Your Morning Brief
             </a>
+
+            <p className="text-center text-white/30 text-xs mt-4">No contracts. No setup fees. Cancel anytime.</p>
           </div>
         </div>
       </div>
