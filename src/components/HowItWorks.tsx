@@ -5,21 +5,29 @@ const steps = [
     number: '01',
     title: 'Tell us your goals',
     description: 'Complete a 2-minute questionnaire about what you\'re building and where you want to grow.',
+    image: '/icon-goals.jpg',
+    imageAlt: 'Goals questionnaire icon',
   },
   {
     number: '02',
     title: 'Add your social profiles',
-    description: 'Share your IG, Facebook, or LinkedIn. We mine your context to personalize your brief.',
+    description: 'Share your IG, Facebook, or LinkedIn. We analyze your context to personalize your brief.',
+    image: '/icon-social.jpg',
+    imageAlt: 'Social profiles and network icon',
   },
   {
     number: '03',
     title: 'Pick your delivery',
     description: 'Slack Channel, Telegram, or Email. Pick your time window — 4 AM to 10 AM.',
+    image: '/icon-delivery.jpg',
+    imageAlt: 'Delivery options and clock icon',
   },
   {
     number: '04',
     title: 'First brief in minutes',
     description: 'Not tomorrow. Within minutes of signing up, your personalized intelligence brief is ready.',
+    image: null,
+    imageAlt: null,
   },
 ]
 
@@ -44,9 +52,30 @@ export default function HowItWorks() {
         >
           {steps.map((step, i) => (
             <div key={i} className="glass-card p-6 relative group hover:border-accent/40 transition-colors duration-300">
+              {/* Icon: image for steps 1-3, Zap SVG for step 4 */}
+              <div className="mb-4">
+                {step.image ? (
+                  <img
+                    src={step.image}
+                    alt={step.imageAlt ?? ''}
+                    className="w-16 h-16 rounded-full object-cover"
+                    style={{ border: '2px solid rgba(124,58,237,0.35)' }}
+                  />
+                ) : (
+                  <div
+                    className="w-16 h-16 rounded-full flex items-center justify-center"
+                    style={{ background: 'rgba(124,58,237,0.15)', border: '2px solid rgba(124,58,237,0.35)' }}
+                  >
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A855F7" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+
               {/* Step number */}
               <div
-                className="font-display text-4xl mb-4 leading-none"
+                className="font-display text-2xl mb-3 leading-none"
                 style={{
                   background: 'linear-gradient(135deg, #7C3AED 0%, #A855F7 100%)',
                   WebkitBackgroundClip: 'text',

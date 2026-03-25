@@ -229,6 +229,9 @@ export default function SignupForm() {
                 onChange={e => set('linkedin_url', e.target.value)}
               />
             </div>
+            <p className="text-xs mt-1" style={{ color: 'rgba(216,180,254,0.7)' }}>
+              We analyze your public profile to understand your industry, business stage, and content interests — so your brief is relevant from day one. We never post, follow, or access anything private.
+            </p>
           </div>
 
           {/* What are you building */}

@@ -18,6 +18,10 @@ const items = [
     q: 'How fast is the first brief?',
     a: 'Within minutes of completing signup. We generate your personalized brief immediately from your questionnaire and social profile data. You don\'t wait until tomorrow.',
   },
+  {
+    q: 'Isn\'t this just ChatGPT summarizing YouTube transcripts?',
+    a: 'No. ChatGPT doesn\'t watch 20 expert channels overnight, cross-reference patterns across all of them, and tell you when Hormozi and Martell publish the same framework in the same week. Generic AI summarization gives you one video at a time. SignalScout gives you the intelligence layer on top — the connections, the timing, and the \'why this matters now\' that no single-video summary can deliver.',
+  },
 ]
 
 export default function FAQ() {

@@ -4,7 +4,7 @@ const cards = [
   {
     label: 'What',
     title: 'The signal worth your attention',
-    description: 'The specific trend, framework, or insight worth your attention today — extracted from transcripts, not just headlines.',
+    description: 'The specific trend, framework, or insight worth your attention today — from full transcripts, not just headlines.',
     gradient: 'rgba(124,58,237,0.18)',
   },
   {
