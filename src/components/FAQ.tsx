@@ -3,8 +3,8 @@ import { useReveal } from '../hooks/useReveal'
 
 const items = [
   {
-    q: 'How is this different from just following YouTube channels?',
-    a: 'Subscribing gives you a feed. SignalScout gives you synthesis. We don\'t just tell you a video was published — we extract the transcript, identify frameworks, spot patterns across creators, and compress it into a 4-section brief you can read in 5 minutes. You\'d need 3+ hours of watching to get what we deliver before breakfast.',
+    q: 'What sources does SignalScout actually pull from?',
+    a: 'Everything relevant. Articles, video transcripts, published case studies, research docs, newsletters, keynotes, and industry analyses. We don\'t limit ourselves to one platform or one format. The value is in cross-source pattern detection — when the same insight shows up independently across multiple formats and authors, that\'s a real signal, not just one person\'s take.',
   },
   {
     q: 'How do you personalize my brief?',
@@ -19,8 +19,8 @@ const items = [
     a: 'Within minutes of completing signup. We generate your personalized brief immediately from your questionnaire and social profile data. You don\'t wait until tomorrow.',
   },
   {
-    q: 'Isn\'t this just ChatGPT summarizing YouTube transcripts?',
-    a: 'No. ChatGPT doesn\'t watch 20 expert channels overnight, cross-reference patterns across all of them, and tell you when Hormozi and Martell publish the same framework in the same week. Generic AI summarization gives you one video at a time. SignalScout gives you the intelligence layer on top — the connections, the timing, and the \'why this matters now\' that no single-video summary can deliver.',
+    q: 'How is this different from using AI to summarize content myself?',
+    a: 'Generic AI tools summarize one thing at a time — you paste in a link, you get a summary. SignalScout monitors hundreds of sources continuously, identifies when multiple authors and formats converge on the same insight, and synthesizes the pattern into a single brief personalized to your goals. You\'re not getting a summary. You\'re getting an intelligence layer that catches what you\'d miss even if you had 4 hours a day to read.',
   },
 ]
 

@@ -47,16 +47,6 @@ export default function DeliveryOptions() {
           <h2 className="section-heading text-3xl sm:text-4xl text-white">Arrives where you already work</h2>
         </div>
 
-        {/* Channels feature image */}
-        <div className="flex justify-center mb-10">
-          <img
-            src="/icon-channels.jpg"
-            alt="SignalScout delivery channels — Slack, Telegram, and Email"
-            className="rounded-xl object-cover w-full max-w-md"
-            style={{ border: '1px solid rgba(124,58,237,0.25)', boxShadow: '0 0 40px rgba(124,58,237,0.15)' }}
-          />
-        </div>
-
         <div
           ref={gridRef as React.RefObject<HTMLDivElement>}
           className="reveal-stagger grid grid-cols-1 sm:grid-cols-3 gap-6"

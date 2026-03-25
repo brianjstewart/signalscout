@@ -94,8 +94,8 @@ export default function Pricing() {
               ))}
             </ul>
 
-            <a href="#signup" className="btn-primary w-full text-center block">
-              Start Your Morning Brief
+            <a href="#waitlist" className="btn-primary w-full text-center block">
+              Join the Waitlist
             </a>
 
             <p className="text-center text-white/30 text-xs mt-4">No contracts. No setup fees. Cancel anytime.</p>

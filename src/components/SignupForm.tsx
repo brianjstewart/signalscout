@@ -130,8 +130,8 @@ export default function SignupForm() {
       >
         <div className="text-center mb-10">
           <p className="section-label mb-3">Get Started</p>
-          <h2 className="section-heading text-3xl sm:text-4xl text-white mb-3">Start Your Morning Brief</h2>
-          <p className="text-white/50">$29/mo. Your first brief arrives within minutes.</p>
+          <h2 className="section-heading text-3xl sm:text-4xl text-white mb-3">Reserve Your Brief</h2>
+          <p className="text-white/50">SignalScout is launching soon. Be first in line.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="glass-card p-8 space-y-5 relative overflow-hidden">
@@ -288,7 +288,7 @@ export default function SignupForm() {
                 </svg>
                 Submitting...
               </span>
-            ) : 'Get My First Brief Now'}
+            ) : 'Join the Waitlist'}
           </button>
 
           <p className="text-center text-white/30 text-xs">$29/mo · Cancel anytime · No contracts</p>

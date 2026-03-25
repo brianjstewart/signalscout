@@ -3,19 +3,35 @@ import type { FormEvent } from 'react'
 import { supabase } from '../lib/supabase'
 import { useReveal } from '../hooks/useReveal'
 
+const checkboxOptions = [
+  "I'm spending too much time consuming content and not enough acting on it",
+  "I keep missing important industry shifts until it's too late",
+  "I want to know what's working for other operators in my space right now",
+  "I need a faster way to brief myself (or my team) every morning",
+  "I'm interested in cross-source pattern detection (not just single-article summaries)",
+  "I heard about it from someone I trust",
+]
+
 export default function WaitlistForm() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [reason, setReason] = useState('')
+  const [checkedOptions, setCheckedOptions] = useState<string[]>([])
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const ref = useReveal()
 
+  function toggleOption(option: string) {
+    setCheckedOptions(prev =>
+      prev.includes(option) ? prev.filter(o => o !== option) : [...prev, option]
+    )
+  }
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     setError('')
     setLoading(true)
+    const reason = checkedOptions.join(', ')
     try {
       const { error: dbError } = await supabase.from('signalscout_waitlist').insert([{
         full_name: name,
@@ -54,8 +70,8 @@ export default function WaitlistForm() {
       >
         <div className="text-center mb-8">
           <p className="section-label mb-3">Waitlist</p>
-          <h2 className="section-heading text-2xl sm:text-3xl text-white mb-2">Not ready yet?</h2>
-          <p className="text-white/50 text-sm">Reserve your spot. We'll reach out when it's time.</p>
+          <h2 className="section-heading text-2xl sm:text-3xl text-white mb-2">Reserve your brief.</h2>
+          <p className="text-white/50 text-sm">SignalScout is launching soon. Join the waitlist and be first to get your daily intelligence brief.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="glass-card p-6 space-y-4 relative overflow-hidden">
@@ -86,13 +102,40 @@ export default function WaitlistForm() {
           </div>
 
           <div>
-            <label className="form-label">What drew you to SignalScout?</label>
-            <textarea
-              className="form-field min-h-[80px] resize-none"
-              placeholder="I'm tired of missing content from creators I follow..."
-              value={reason}
-              onChange={e => setReason(e.target.value)}
-            />
+            <label className="form-label mb-3 block">What drew you to SignalScout? (select all that apply)</label>
+            <div className="space-y-2.5">
+              {checkboxOptions.map((option) => (
+                <label
+                  key={option}
+                  className="flex items-start gap-3 cursor-pointer group"
+                >
+                  <div className="relative shrink-0 mt-0.5">
+                    <input
+                      type="checkbox"
+                      className="sr-only"
+                      checked={checkedOptions.includes(option)}
+                      onChange={() => toggleOption(option)}
+                    />
+                    <div
+                      className="w-5 h-5 rounded transition-all duration-150 flex items-center justify-center"
+                      style={{
+                        background: checkedOptions.includes(option) ? 'rgba(124,58,237,0.35)' : 'rgba(255,255,255,0.06)',
+                        border: checkedOptions.includes(option) ? '1.5px solid #A855F7' : '1.5px solid rgba(255,255,255,0.2)',
+                      }}
+                    >
+                      {checkedOptions.includes(option) && (
+                        <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                          <path d="M1 4l2.5 2.5L9 1" stroke="#A855F7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      )}
+                    </div>
+                  </div>
+                  <span className="text-white/65 text-sm leading-snug group-hover:text-white/85 transition-colors duration-150">
+                    {option}
+                  </span>
+                </label>
+              ))}
+            </div>
           </div>
 
           {error && (
