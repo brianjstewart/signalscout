@@ -18,9 +18,9 @@ export default function Footer() {
         {/* Links */}
         <div className="flex gap-5 text-xs text-white/35">
           <a href="#how-it-works" className="hover:text-white/65 transition-colors">How It Works</a>
-          <a href="#pricing" className="hover:text-white/65 transition-colors">Pricing</a>
-          <a href="#signup" className="hover:text-white/65 transition-colors">Get Started</a>
-          <a href="#waitlist" className="hover:text-white/65 transition-colors">Waitlist</a>
+          <a href="#waitlist" className="hover:text-white/65 transition-colors">Founding Access</a>
+          <a href="#waitlist" className="hover:text-white/65 transition-colors">Join Waitlist</a>
+          <a href="#faq" className="hover:text-white/65 transition-colors">FAQ</a>
         </div>
       </div>
     </footer>

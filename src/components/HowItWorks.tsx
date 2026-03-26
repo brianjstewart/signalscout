@@ -60,7 +60,7 @@ export default function HowItWorks() {
           className="reveal text-center mb-14"
         >
           <p className="section-label mb-3">How It Works</p>
-          <h2 className="section-heading text-3xl sm:text-4xl text-white">Up and running in minutes</h2>
+          <h2 className="section-heading text-3xl sm:text-4xl text-white">You're reading your first brief before breakfast.</h2>
         </div>
 
         <div

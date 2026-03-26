@@ -11,7 +11,7 @@ export default function OriginStory() {
       >
         <p className="section-label mb-6">Why This Exists</p>
         <h2 className="section-heading text-2xl sm:text-3xl text-white mb-10 leading-snug">
-          Every day the best intelligence in your industry goes unread. Here's why that changes.
+          Built by an operator who got tired of being one step behind
         </h2>
 
         <div className="glass-card p-8 sm:p-10 relative">
@@ -24,15 +24,15 @@ export default function OriginStory() {
           >"</div>
 
           <blockquote className="text-white/80 text-lg sm:text-xl leading-relaxed italic mb-8 mt-4">
-            Trying to pull real opportunities out of 100+ YouTube channels, 50+ podcasts, LinkedIn, articles, blogs, and newsletters from the best creators, educators, and operators in the game every single day is nearly impossible. You miss things. You fall behind. That's exactly why I built this.
+            I follow dozens of experts across platforms — and I was missing most of it. There just weren't enough hours. Now I get one brief every morning with everything that matters, including connections across sources I'd never catch on my own.
           </blockquote>
 
           <div className="flex items-center justify-center gap-3">
             <img
               src="/hero-image.jpg"
               alt="Brian Stewart"
-              className="w-10 h-10 rounded-full object-cover"
-              style={{ border: '2px solid rgba(124,58,237,0.5)' }}
+              className="w-14 h-14 rounded-full object-cover"
+              style={{ border: '2px solid rgba(124,58,237,0.5)', boxShadow: '0 0 16px rgba(124,58,237,0.4)' }}
             />
             <div className="text-left">
               <p className="text-white font-semibold text-sm">Brian Stewart</p>

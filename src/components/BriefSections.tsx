@@ -38,7 +38,7 @@ export default function BriefSections() {
           ref={titleRef as React.RefObject<HTMLDivElement>}
           className="reveal text-center mb-14"
         >
-          <p className="section-label mb-3">What's In Your Brief</p>
+          <p className="section-label mb-3">Inside Every Brief</p>
           <h2 className="section-heading text-3xl sm:text-4xl text-white">Four sections. Five minutes. Done.</h2>
         </div>
 
@@ -49,7 +49,7 @@ export default function BriefSections() {
           {cards.map((card, i) => (
             <div
               key={i}
-              className="glass-card p-6 group hover:border-accent/40 transition-all duration-300 hover:translate-y-[-2px]"
+              className="glass-card p-6 group hover:border-accent/40 transition-all duration-300 hover:translate-y-[-3px] hover:shadow-[0_8px_30px_rgba(124,58,237,0.2)]"
             >
               <div
                 className="inline-block px-3 py-1 rounded mb-4 font-display uppercase"

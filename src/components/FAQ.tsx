@@ -36,7 +36,7 @@ export default function FAQ() {
       >
         <div className="text-center mb-12">
           <p className="section-label mb-3">FAQ</p>
-          <h2 className="section-heading text-3xl sm:text-4xl text-white">Common questions</h2>
+          <h2 className="section-heading text-3xl sm:text-4xl text-white">Questions before you commit</h2>
         </div>
 
         <div className="space-y-3">
