@@ -55,23 +55,17 @@ export default function Hero() {
                 {/* Card accent line */}
                 <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg, #7C3AED, #A855F7)' }} />
 
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-accentLight" style={{ boxShadow: '0 0 6px #A855F7' }} />
-                    <span className="section-label text-xs">Sample Brief — Today's Signal</span>
-                  </div>
-                  <span className="text-white/25 text-xs">March 25, 2026</span>
+                {/* Slack-style header */}
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-2 h-2 rounded-full bg-accentLight flex-shrink-0" style={{ boxShadow: '0 0 6px #A855F7' }} />
+                  <span className="text-white font-semibold text-sm">📅 Daily Brief — Wednesday, March 25, 2026</span>
                 </div>
 
-                {/* OPPORTUNITY OF THE DAY label */}
-                <div className="mb-4">
-                  <span
-                    className="text-xs font-display uppercase tracking-widest"
-                    style={{ color: '#A855F7', fontWeight: 700, letterSpacing: '0.15em' }}
-                  >
-                    Opportunity of the Day
-                  </span>
-                </div>
+                {/* Divider */}
+                <div className="border-t border-white/10 mb-3" />
+
+                {/* OPPORTUNITY OF THE DAY */}
+                <p className="text-white font-bold text-sm uppercase tracking-wide mb-3">OPPORTUNITY OF THE DAY</p>
 
                 <div className="space-y-3">
                   <p className="text-white/75 text-sm leading-relaxed">
@@ -79,7 +73,7 @@ export default function Hero() {
                     Agentic Commerce Readiness Audit — a productized audit + implementation sprint helping Shopify D2C brands make their product catalogs discoverable by AI shopping agents (ChatGPT Shopping, Perplexity, Copilot, etc.)
                   </p>
                   <p className="text-white/75 text-sm leading-relaxed">
-                    <span className="text-white font-semibold">• Why Now: </span>
+                    <span className="text-white font-semibold">• Why now: </span>
                     Shopify's Winter 2026 Edition just dropped with heavy AI-agent integration baked in. AI-driven orders have risen 11x since 2025 and nearly half of D2C brands plan to invest $1M+ in AI commerce this year. Most brands have no idea their catalog is invisible to AI agents — creating a clear wedge for a fast, high-value consulting offer. First-mover advantage is closing fast.
                   </p>
                   <p className="text-white/75 text-sm leading-relaxed">
@@ -87,10 +81,13 @@ export default function Hero() {
                     $5,000–$15,000 per audit engagement (2–3 week sprint). Even 2 clients in 30 days = $10k–$30k incremental. Systematize it into a recurring service module and use it as an upsell into ongoing retainers.
                   </p>
                   <p className="text-white/75 text-sm leading-relaxed">
-                    <span className="text-white font-semibold">• First Move: </span>
+                    <span className="text-white font-semibold">• First move: </span>
                     Build a 1-page "Agentic Readiness Scorecard" this week — structured data, API-readiness, schema markup, product copy intent-alignment. Pitch it to 3 current clients and publish as a lead magnet on LinkedIn. Tight feedback loop, fast proof of concept.
                   </p>
                 </div>
+
+                {/* Closing divider */}
+                <div className="border-t border-white/10 mt-4" />
               </div>
             </div>
 
