@@ -76,19 +76,19 @@ export default function Hero() {
                 <div className="space-y-4">
                   <BriefRow
                     label="What"
-                    text="Bundled offer structures are dramatically outperforming single-SKU pricing in direct-to-consumer categories. This isn't one person's take — it's showing up independently across case studies, keynote transcripts, and industry analyses published this week."
+                    text="Agentic Commerce Readiness Audit — a productized audit + implementation sprint helping Shopify D2C brands make their product catalogs discoverable by AI shopping agents (ChatGPT Shopping, Perplexity, Copilot, etc.)"
                   />
                   <BriefRow
                     label="Why Now"
-                    text="Conversion costs in paid acquisition are up 18% quarter over quarter. Brands that restructured their offer architecture in the last 90 days are reporting 2x or higher return on ad spend compared to those still running single-product campaigns. The window is now — before this becomes standard practice and the advantage disappears."
+                    text="Shopify's Winter 2026 Edition just dropped with heavy AI-agent integration baked in. AI-driven orders have risen 11x since 2025 and nearly half of D2C brands plan to invest $1M+ in AI commerce this year. Most brands have no idea their catalog is invisible to AI agents — creating a clear wedge for a fast, high-value consulting offer. First-mover advantage is closing fast."
                   />
                   <BriefRow
                     label="Potential"
-                    text="Operators in the $1M to $10M revenue range who implemented bundled offer models saw an average 34% increase in average order value within 60 days. For a business running $50K/mo in ad spend, that translates to roughly $200K in incremental annual revenue with no increase in traffic costs."
+                    text="$5,000–$15,000 per audit engagement (2–3 week sprint). Even 2 clients in 30 days = $10k–$30k incremental. Systematize it into a recurring service module and use it as an upsell into ongoing retainers."
                   />
                   <BriefRow
                     label="First Move"
-                    text="Pull your top three products by margin. Build one bundled offer where the perceived value of the bonus exceeds the price of the core item. Test it against your current best-performing ad creative this week. Measure AOV shift over 7 days before scaling."
+                    text='Build a 1-page "Agentic Readiness Scorecard" this week — structured data, API-readiness, schema markup, product copy intent-alignment. Pitch it to 3 current clients and publish as a lead magnet on LinkedIn. Tight feedback loop, fast proof of concept.'
                   />
                 </div>
               </div>
