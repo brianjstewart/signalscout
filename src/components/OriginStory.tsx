@@ -28,12 +28,12 @@ export default function OriginStory() {
           </blockquote>
 
           <div className="flex items-center justify-center gap-3">
-            <div
-              className="w-10 h-10 rounded-full flex items-center justify-center text-white font-display text-sm"
-              style={{ background: 'linear-gradient(135deg, #7C3AED 0%, #A855F7 100%)', fontWeight: 700 }}
-            >
-              BS
-            </div>
+            <img
+              src="/hero-image.jpg"
+              alt="Brian Stewart"
+              className="w-10 h-10 rounded-full object-cover"
+              style={{ border: '2px solid rgba(124,58,237,0.5)' }}
+            />
             <div className="text-left">
               <p className="text-white font-semibold text-sm">Brian Stewart</p>
               <p className="text-white/45 text-xs">Founder, SignalScout · CGO, BMP Tuning</p>
