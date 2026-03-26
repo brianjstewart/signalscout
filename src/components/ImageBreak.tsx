@@ -1,6 +1,6 @@
 export default function ImageBreak() {
   return (
-    <section className="px-6 py-4">
+    <section className="px-6 pt-0 pb-8">
       <div className="max-w-5xl mx-auto">
         <div
           className="rounded-2xl overflow-hidden"

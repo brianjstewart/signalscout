@@ -59,23 +59,24 @@ export default function Hero() {
           {/* Right: Brief card — product demo */}
           <div className="flex-shrink-0 lg:w-[480px] xl:w-[520px] lg:sticky lg:top-28 w-full">
             <div className="glass-card p-6 text-left relative overflow-hidden">
-              {/* Live Brief chip — top right */}
-              <div
-                className="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full"
-                style={{ background: 'rgba(124,58,237,0.2)', border: '1px solid rgba(168,85,247,0.35)' }}
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-xs font-display uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em' }}>Live Brief</span>
-              </div>
-
               <div className="relative z-10">
                 {/* Card accent line */}
                 <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg, #7C3AED, #A855F7)' }} />
 
-                {/* Slack-style header */}
-                <div className="flex items-center gap-2 mb-3 pt-4">
-                  <div className="w-2 h-2 rounded-full bg-accentLight flex-shrink-0" style={{ boxShadow: '0 0 6px #A855F7' }} />
-                  <span className="text-white font-semibold text-sm">📅 Daily Brief — {dateStr}</span>
+                {/* Slack-style header with Live chip inline */}
+                <div className="flex items-center justify-between mb-3 pt-6">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-accentLight flex-shrink-0" style={{ boxShadow: '0 0 6px #A855F7' }} />
+                    <span className="text-white font-semibold text-sm">📅 Daily Brief — {dateStr}</span>
+                  </div>
+                  {/* Live Brief chip — inline right of date */}
+                  <div
+                    className="flex items-center gap-1.5 px-2.5 py-1 rounded-full flex-shrink-0"
+                    style={{ background: 'rgba(124,58,237,0.2)', border: '1px solid rgba(168,85,247,0.35)' }}
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                    <span className="text-xs font-display uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em' }}>Live</span>
+                  </div>
                 </div>
 
                 {/* Divider */}
@@ -90,21 +91,21 @@ export default function Hero() {
                     Agentic Commerce Readiness Audit — a productized audit + implementation sprint helping Shopify D2C brands make their product catalogs discoverable by AI shopping agents (ChatGPT Shopping, Perplexity, Copilot, etc.)
                   </p>
 
-                  <div className="border-t my-3" style={{ borderColor: 'rgba(255,255,255,0.06)' }} />
+                  <div className="border-t my-4" style={{ borderColor: 'rgba(255,255,255,0.06)' }} />
 
                   <p className="text-white/75 text-sm leading-relaxed">
                     <span className="text-white font-semibold">• Why now: </span>
                     Shopify's Winter 2026 Edition just dropped with heavy AI-agent integration baked in. AI-driven orders have risen 11x since 2025 and nearly half of D2C brands plan to invest $1M+ in AI commerce this year. Most brands have no idea their catalog is invisible to AI agents — creating a clear wedge for a fast, high-value consulting offer. First-mover advantage is closing fast.
                   </p>
 
-                  <div className="border-t my-3" style={{ borderColor: 'rgba(255,255,255,0.06)' }} />
+                  <div className="border-t my-4" style={{ borderColor: 'rgba(255,255,255,0.06)' }} />
 
                   <p className="text-white/75 text-sm leading-relaxed">
                     <span className="text-white font-semibold">• Potential: </span>
                     $5,000–$15,000 per audit engagement (2–3 week sprint). Even 2 clients in 30 days = $10k–$30k incremental. Systematize it into a recurring service module and use it as an upsell into ongoing retainers.
                   </p>
 
-                  <div className="border-t my-3" style={{ borderColor: 'rgba(255,255,255,0.06)' }} />
+                  <div className="border-t my-4" style={{ borderColor: 'rgba(255,255,255,0.06)' }} />
 
                   <p className="text-white/75 text-sm leading-relaxed">
                     <span className="text-white font-semibold">• First move: </span>
@@ -114,6 +115,17 @@ export default function Hero() {
 
                 {/* Closing divider */}
                 <div className="border-t border-white/10 mt-4" />
+
+                {/* Founders Feed link */}
+                <div className="mt-4 text-center">
+                  <a
+                    href="/founders-feed"
+                    className="text-sm font-medium transition-colors duration-200"
+                    style={{ color: '#A855F7' }}
+                  >
+                    See all opportunities in the Founders Feed →
+                  </a>
+                </div>
               </div>
             </div>
 

@@ -25,17 +25,11 @@ const CHECKBOX_OPTIONS = [
 export default function FoundingMember() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [checkedKeys, setCheckedKeys] = useState<string[]>([])
+  const [checkedKeys] = useState<string[]>([])
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const ref = useReveal()
-
-  function toggleKey(key: string) {
-    setCheckedKeys(prev =>
-      prev.includes(key) ? prev.filter(k => k !== key) : [...prev, key]
-    )
-  }
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
@@ -112,7 +106,7 @@ export default function FoundingMember() {
     <section id="waitlist" className="py-20 px-6">
       <div
         ref={ref as React.RefObject<HTMLDivElement>}
-        className="reveal max-w-2xl mx-auto"
+        className="reveal max-w-3xl mx-auto"
       >
         {/* Section header */}
         <div className="text-center mb-10">
@@ -121,129 +115,77 @@ export default function FoundingMember() {
           <p className="text-white/50 text-sm">$29/mo at launch · Founding members lock this rate forever</p>
         </div>
 
-        {/* Unified container */}
-        <div
-          className="rounded-2xl p-8"
-          style={{
-            background: 'rgba(255,255,255,0.03)',
-            border: '1px solid rgba(124,58,237,0.2)',
-            boxShadow: '0 0 60px rgba(124,58,237,0.08)',
-          }}
-        >
-          <div className="grid md:grid-cols-2 gap-8 items-start">
-            {/* Left: Perks list */}
-            <div className="glass-card p-6 relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg, #7C3AED, #A855F7)' }} />
-              <ul className="space-y-3 pt-2">
-                {PERKS.map((perk, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span
-                      className="mt-0.5 shrink-0 w-5 h-5 rounded-full flex items-center justify-center"
-                      style={{ background: 'rgba(124, 58, 237, 0.25)' }}
-                    >
-                      <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                        <path d="M1 4l2.5 2.5L9 1" stroke="#A855F7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </span>
-                    <span className="text-white/75 text-sm leading-snug">{perk}</span>
-                  </li>
-                ))}
-              </ul>
+        {/* Perks — 3-column horizontal */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+          {PERKS.map((perk, i) => (
+            <div key={i} className="flex items-start gap-3 p-4 rounded-xl" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(124,58,237,0.15)' }}>
+              <span className="mt-0.5 shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style={{ background: 'rgba(124,58,237,0.25)' }}>
+                <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                  <path d="M1 4l2.5 2.5L9 1" stroke="#A855F7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <span className="text-white/75 text-sm leading-snug">{perk}</span>
             </div>
+          ))}
+        </div>
 
-            {/* Right: Waitlist form */}
+        {/* Form — centered, max-w-md */}
+        <div className="max-w-md mx-auto">
+          <form onSubmit={handleSubmit} className="glass-card p-6 space-y-4 relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg, #7C3AED, #A855F7)' }} />
+
             <div>
-              <form onSubmit={handleSubmit} className="glass-card p-6 space-y-4 relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-[1px]" style={{ background: 'linear-gradient(90deg, transparent, rgba(168,85,247,0.3), transparent)' }} />
-
-                <div>
-                  <label className="form-label">Name</label>
-                  <input
-                    className="form-field"
-                    type="text"
-                    required
-                    placeholder="Your name"
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                  />
-                </div>
-
-                <div>
-                  <label className="form-label">Email</label>
-                  <input
-                    className="form-field"
-                    type="email"
-                    required
-                    placeholder="you@example.com"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                  />
-                </div>
-
-                <div>
-                  <label className="form-label mb-3 block">What drew you to SignalScout? (select all that apply)</label>
-                  <div className="space-y-2.5">
-                    {CHECKBOX_OPTIONS.map(({ key, label }) => (
-                      <label
-                        key={key}
-                        className="flex items-start gap-3 cursor-pointer group"
-                      >
-                        <div className="relative shrink-0 mt-0.5">
-                          <input
-                            type="checkbox"
-                            className="sr-only"
-                            checked={checkedKeys.includes(key)}
-                            onChange={() => toggleKey(key)}
-                          />
-                          <div
-                            className="w-5 h-5 rounded transition-all duration-150 flex items-center justify-center"
-                            style={{
-                              background: checkedKeys.includes(key) ? 'rgba(124,58,237,0.35)' : 'rgba(255,255,255,0.06)',
-                              border: checkedKeys.includes(key) ? '1.5px solid #A855F7' : '1.5px solid rgba(255,255,255,0.2)',
-                            }}
-                          >
-                            {checkedKeys.includes(key) && (
-                              <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                                <path d="M1 4l2.5 2.5L9 1" stroke="#A855F7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                              </svg>
-                            )}
-                          </div>
-                        </div>
-                        <span className="text-white/65 text-sm leading-snug group-hover:text-white/85 transition-colors duration-150">
-                          {label}
-                        </span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                <p className="text-white/35 text-xs italic text-center pt-1">
-                  Every morning you don't have this, someone in your space does.
-                </p>
-
-                {error && (
-                  <div className="rounded-lg px-4 py-3 text-sm" style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', color: '#FCA5A5' }}>
-                    {error}
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="btn-secondary w-full text-center block"
-                  style={{ opacity: loading ? 0.7 : 1, cursor: loading ? 'not-allowed' : 'pointer' }}
-                >
-                  {loading ? 'Claiming...' : 'Claim My Founding Spot'}
-                </button>
-              </form>
-
-              <p className="text-white/40 text-xs text-center mt-3">
-                Founding spots limited to 250 · 47 claimed so far
-              </p>
+              <label className="form-label">Name</label>
+              <input
+                className="form-field"
+                type="text"
+                required
+                placeholder="Your name"
+                value={name}
+                onChange={e => setName(e.target.value)}
+              />
             </div>
-          </div>
+
+            <div>
+              <label className="form-label">Email</label>
+              <input
+                className="form-field"
+                type="email"
+                required
+                placeholder="you@example.com"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
+            </div>
+
+            {error && (
+              <div className="rounded-lg px-4 py-3 text-sm" style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', color: '#FCA5A5' }}>
+                {error}
+              </div>
+            )}
+
+            <p className="text-white/40 text-xs italic text-center">
+              Every morning you don't have this, someone in your space does.
+            </p>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="btn-primary w-full text-center block"
+              style={{ opacity: loading ? 0.7 : 1, cursor: loading ? 'not-allowed' : 'pointer' }}
+            >
+              {loading ? 'Claiming...' : 'Claim My Founding Spot'}
+            </button>
+          </form>
+
+          <p className="text-white/40 text-xs text-center mt-3">
+            Founding spots limited to 250 · 47 claimed so far
+          </p>
         </div>
       </div>
     </section>
   )
 }
+
+// Keep CHECKBOX_OPTIONS export for potential future use
+export { CHECKBOX_OPTIONS }
