@@ -19,7 +19,7 @@ const FEED_ENTRIES = [
     firstMove: "Audit your 3 best customers. Identify the exact moment they re-engaged after their first purchase. Build one AI sequence targeting customers who match that pattern but haven't returned in 45 days.",
   },
   {
-    date: 'Monday, March 24, 2026',
+    date: 'Sunday, March 23, 2026',
     opportunity: 'The Local AI Execution Layer',
     what: "Multiple independent sources converged on a fundamental shift: frontier cloud models as orchestrators, local open-source models (Qwen 3.5, Neotron 3) as execution muscles. The result is continuous 24/7 AI operation at near-zero cost.",
     whyNow: "Operators running 100% on cloud APIs face runaway costs as they scale. Local model quality has crossed the threshold where it's viable for most execution tasks. The hardware to run it is accessible. First movers build infrastructure competitors will spend months trying to replicate.",
