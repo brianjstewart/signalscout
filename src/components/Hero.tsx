@@ -73,23 +73,23 @@ export default function Hero() {
                   </span>
                 </div>
 
-                <div className="space-y-4">
-                  <BriefRow
-                    label="What"
-                    text="Agentic Commerce Readiness Audit — a productized audit + implementation sprint helping Shopify D2C brands make their product catalogs discoverable by AI shopping agents (ChatGPT Shopping, Perplexity, Copilot, etc.)"
-                  />
-                  <BriefRow
-                    label="Why Now"
-                    text="Shopify's Winter 2026 Edition just dropped with heavy AI-agent integration baked in. AI-driven orders have risen 11x since 2025 and nearly half of D2C brands plan to invest $1M+ in AI commerce this year. Most brands have no idea their catalog is invisible to AI agents — creating a clear wedge for a fast, high-value consulting offer. First-mover advantage is closing fast."
-                  />
-                  <BriefRow
-                    label="Potential"
-                    text="$5,000–$15,000 per audit engagement (2–3 week sprint). Even 2 clients in 30 days = $10k–$30k incremental. Systematize it into a recurring service module and use it as an upsell into ongoing retainers."
-                  />
-                  <BriefRow
-                    label="First Move"
-                    text='Build a 1-page "Agentic Readiness Scorecard" this week — structured data, API-readiness, schema markup, product copy intent-alignment. Pitch it to 3 current clients and publish as a lead magnet on LinkedIn. Tight feedback loop, fast proof of concept.'
-                  />
+                <div className="space-y-3">
+                  <p className="text-white/75 text-sm leading-relaxed">
+                    <span className="text-white font-semibold">• What: </span>
+                    Agentic Commerce Readiness Audit — a productized audit + implementation sprint helping Shopify D2C brands make their product catalogs discoverable by AI shopping agents (ChatGPT Shopping, Perplexity, Copilot, etc.)
+                  </p>
+                  <p className="text-white/75 text-sm leading-relaxed">
+                    <span className="text-white font-semibold">• Why Now: </span>
+                    Shopify's Winter 2026 Edition just dropped with heavy AI-agent integration baked in. AI-driven orders have risen 11x since 2025 and nearly half of D2C brands plan to invest $1M+ in AI commerce this year. Most brands have no idea their catalog is invisible to AI agents — creating a clear wedge for a fast, high-value consulting offer. First-mover advantage is closing fast.
+                  </p>
+                  <p className="text-white/75 text-sm leading-relaxed">
+                    <span className="text-white font-semibold">• Potential: </span>
+                    $5,000–$15,000 per audit engagement (2–3 week sprint). Even 2 clients in 30 days = $10k–$30k incremental. Systematize it into a recurring service module and use it as an upsell into ongoing retainers.
+                  </p>
+                  <p className="text-white/75 text-sm leading-relaxed">
+                    <span className="text-white font-semibold">• First Move: </span>
+                    Build a 1-page "Agentic Readiness Scorecard" this week — structured data, API-readiness, schema markup, product copy intent-alignment. Pitch it to 3 current clients and publish as a lead magnet on LinkedIn. Tight feedback loop, fast proof of concept.
+                  </p>
                 </div>
               </div>
             </div>
@@ -107,26 +107,4 @@ export default function Hero() {
   )
 }
 
-function BriefRow({ label, text }: { label: string; text: string }) {
-  return (
-    <div className="flex gap-3 items-start">
-      <div className="shrink-0 pt-0.5">
-        <span
-          className="inline-block px-2 py-0.5 rounded font-display uppercase"
-          style={{
-            background: 'rgba(124,58,237,0.25)',
-            color: '#A855F7',
-            fontSize: '0.65rem',
-            letterSpacing: '0.1em',
-            fontWeight: 700,
-            lineHeight: '1.6',
-            whiteSpace: 'nowrap',
-          }}
-        >
-          {label}
-        </span>
-      </div>
-      <p className="text-white/75 text-sm leading-relaxed">{text}</p>
-    </div>
-  )
-}
+
