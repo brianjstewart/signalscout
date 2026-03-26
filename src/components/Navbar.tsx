@@ -25,7 +25,8 @@ export default function Navbar() {
     >
       <div className="max-w-5xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <a href="#" onClick={close} className="font-display text-lg tracking-wide" style={{ fontWeight: 800 }}>
+        <a href="#" onClick={close} className="inline-flex items-center gap-2 font-display text-lg tracking-wide" style={{ fontWeight: 800 }}>
+          <img src="/favicon.svg" alt="" className="w-5 h-5" />
           <span style={{ background: 'linear-gradient(135deg, #7C3AED 0%, #A855F7 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
             SignalScout
           </span>

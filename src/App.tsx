@@ -4,9 +4,8 @@ import BriefSections from './components/BriefSections'
 import HowItWorks from './components/HowItWorks'
 import DeliveryOptions from './components/DeliveryOptions'
 import OriginStory from './components/OriginStory'
-import Pricing from './components/Pricing'
+import FoundingMember from './components/FoundingMember'
 import FAQ from './components/FAQ'
-import WaitlistForm from './components/WaitlistForm'
 import Footer from './components/Footer'
 
 function App() {
@@ -19,9 +18,8 @@ function App() {
         <HowItWorks />
         <DeliveryOptions />
         <OriginStory />
-        <Pricing />
+        <FoundingMember />
         <FAQ />
-        <WaitlistForm />
       </main>
       <Footer />
     </div>

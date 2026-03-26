@@ -1,4 +1,12 @@
 export default function Hero() {
+  const today = new Date()
+  const dateStr = today.toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
+
   return (
     <section className="relative min-h-screen flex flex-col justify-center px-6 pt-28 pb-24 overflow-hidden">
       {/* Background glow — dual orbs */}
@@ -56,9 +64,9 @@ export default function Hero() {
                 <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg, #7C3AED, #A855F7)' }} />
 
                 {/* Slack-style header */}
-                <div className="flex items-center gap-2 mb-3">
+                <div className="flex items-center gap-2 mb-3 pt-4">
                   <div className="w-2 h-2 rounded-full bg-accentLight flex-shrink-0" style={{ boxShadow: '0 0 6px #A855F7' }} />
-                  <span className="text-white font-semibold text-sm">📅 Daily Brief — Wednesday, March 25, 2026</span>
+                  <span className="text-white font-semibold text-sm">📅 Daily Brief — {dateStr}</span>
                 </div>
 
                 {/* Divider */}
