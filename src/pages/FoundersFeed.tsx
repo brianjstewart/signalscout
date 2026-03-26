@@ -159,7 +159,7 @@ export default function FoundersFeed() {
         >
           <div className="text-3xl mb-4">📬</div>
           <h2 className="section-heading text-2xl sm:text-3xl text-white mb-4">
-            Get this in your inbox every morning.
+            Delivered to your Slack, Telegram, or inbox every morning.
           </h2>
           <p className="text-white/55 text-base mb-8 max-w-md mx-auto leading-relaxed">
             Every morning you don't have this, someone in your space does. Join the waitlist and be first in.
