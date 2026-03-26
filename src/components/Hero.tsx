@@ -19,20 +19,20 @@ export default function Hero() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-accentLight animate-pulse" />
-              <span className="section-label text-xs">AI Intelligence Brief</span>
+              <span className="section-label text-xs">Signal Brief</span>
             </div>
 
             {/* Headline */}
-            <h1 className="section-heading text-4xl sm:text-5xl md:text-6xl leading-tight mb-6 text-white">
-              The trends that matter to your business.{' '}
-              <span style={{ background: 'linear-gradient(135deg, #7C3AED 0%, #A855F7 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline' }}>
-                Delivered every morning before you open your inbox.
-              </span>
+            <h1
+              className="section-heading text-4xl sm:text-5xl md:text-6xl leading-tight mb-6"
+              style={{ background: 'linear-gradient(135deg, #ffffff 0%, #A855F7 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+            >
+              Know what matters. Before everyone else.
             </h1>
 
             {/* Subheadline */}
             <p className="text-lg md:text-xl text-white/65 max-w-2xl lg:max-w-none mx-auto leading-relaxed mb-10">
-              SignalScout scans hundreds of expert sources across platforms — then distills everything into a personalized 5-minute brief built around your goals. You're not getting a summary. You're getting an intelligence layer.
+              When multiple expert sources converge on the same insight, that's a signal worth acting on. SignalScout finds those patterns across hundreds of sources and delivers them in a 5-minute morning brief built around your goals.
             </p>
 
             {/* Single CTA */}
@@ -42,7 +42,7 @@ export default function Hero() {
 
             {/* Micro-note */}
             <p className="text-white/35 text-xs text-center lg:text-left mb-12">
-              $29/mo when we launch · Founding members lock this rate forever · No commitment to join the list
+              $29/mo at launch · Founding members lock this rate forever
             </p>
 
             {/* Sample Brief Card */}
