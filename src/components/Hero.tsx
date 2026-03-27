@@ -1,11 +1,9 @@
+import { FEED_ENTRIES } from '../data/feedEntries'
+
 export default function Hero() {
-  const today = new Date()
-  const dateStr = today.toLocaleDateString('en-US', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
+  const todayEntry = FEED_ENTRIES[0]
+  const truncate = (text: string, limit: number) =>
+    text.length > limit ? text.slice(0, limit) + '…' : text
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center px-6 pt-28 pb-24 overflow-hidden">
@@ -67,7 +65,7 @@ export default function Hero() {
                 <div className="flex items-center justify-between mb-3 pt-6">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-accentLight flex-shrink-0" style={{ boxShadow: '0 0 6px #A855F7' }} />
-                    <span className="text-white font-semibold text-sm">📅 Daily Brief — {dateStr}</span>
+                    <span className="text-white font-semibold text-sm">📅 {todayEntry.date}</span>
                   </div>
                   {/* Live Brief chip — inline right of date */}
                   <div
@@ -84,32 +82,37 @@ export default function Hero() {
 
                 {/* OPPORTUNITY OF THE DAY */}
                 <p className="text-white font-bold text-sm uppercase tracking-wide mb-3">OPPORTUNITY OF THE DAY</p>
+                <p className="text-accentLight font-semibold text-sm mb-3">{todayEntry.opportunity}</p>
 
                 <div className="space-y-0">
                   <p className="text-white/75 text-sm leading-relaxed">
                     <span className="text-white font-semibold">• What: </span>
-                    Agentic Commerce Readiness Audit — a productized audit + implementation sprint helping Shopify D2C brands make their product catalogs discoverable by AI shopping agents (ChatGPT Shopping, Perplexity, Copilot, etc.)
+                    <span className="sm:hidden">{todayEntry.mobileText?.what ?? truncate(todayEntry.what, 100)}</span>
+                    <span className="hidden sm:inline">{truncate(todayEntry.what, 220)}</span>
                   </p>
 
                   <div className="border-t my-4" style={{ borderColor: 'rgba(255,255,255,0.06)' }} />
 
                   <p className="text-white/75 text-sm leading-relaxed">
                     <span className="text-white font-semibold">• Why now: </span>
-                    Shopify's Winter 2026 Edition just dropped with heavy AI-agent integration baked in. AI-driven orders have risen 11x since 2025 and nearly half of D2C brands plan to invest $1M+ in AI commerce this year. Most brands have no idea their catalog is invisible to AI agents — creating a clear wedge for a fast, high-value consulting offer. First-mover advantage is closing fast.
+                    <span className="sm:hidden">{todayEntry.mobileText?.whyNow ?? truncate(todayEntry.whyNow, 100)}</span>
+                    <span className="hidden sm:inline">{truncate(todayEntry.whyNow, 200)}</span>
                   </p>
 
                   <div className="border-t my-4" style={{ borderColor: 'rgba(255,255,255,0.06)' }} />
 
                   <p className="text-white/75 text-sm leading-relaxed">
                     <span className="text-white font-semibold">• Potential: </span>
-                    $5,000–$15,000 per audit engagement (2–3 week sprint). Even 2 clients in 30 days = $10k–$30k incremental. Systematize it into a recurring service module and use it as an upsell into ongoing retainers.
+                    <span className="sm:hidden">{todayEntry.mobileText?.potential ?? truncate(todayEntry.potential, 100)}</span>
+                    <span className="hidden sm:inline">{truncate(todayEntry.potential, 200)}</span>
                   </p>
 
                   <div className="border-t my-4" style={{ borderColor: 'rgba(255,255,255,0.06)' }} />
 
                   <p className="text-white/75 text-sm leading-relaxed">
                     <span className="text-white font-semibold">• First move: </span>
-                    Build a 1-page "Agentic Readiness Scorecard" this week — structured data, API-readiness, schema markup, product copy intent-alignment. Pitch it to 3 current clients and publish as a lead magnet on LinkedIn. Tight feedback loop, fast proof of concept.
+                    <span className="sm:hidden">{todayEntry.mobileText?.firstMove ?? truncate(todayEntry.firstMove, 120)}</span>
+                    <span className="hidden sm:inline">{truncate(todayEntry.firstMove, 200)}</span>
                   </p>
                 </div>
 
