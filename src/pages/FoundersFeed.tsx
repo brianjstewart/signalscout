@@ -10,6 +10,12 @@ const FEED_ENTRIES = [
     whyNow: "Customer acquisition costs are rising across every channel heading into Q2 2026. At 4-6 month average tenure, businesses in the pricing middle are spending to replace their entire customer base multiple times per year. Every dollar of ad spend becomes a retention cost, not a growth investment. The window to reprice before Q3 — when acquisition costs historically spike — is closing.",
     potential: "A $500K ARR service business churning 25% monthly is replacing its customer base 3x per year. Compress churn to 10% through clear price positioning and the same acquisition spend compounds into an asset. That math shifts a $500K business toward $2M with no increase in marketing spend — just fewer customers leaving.",
     firstMove: "Pull your last 90 days of cancellations. Sort by price tier. If your highest churn cluster sits in your mid-range pricing — not your lowest, not your highest — you're in the death band. This week: model what happens to LTV if you move 30% of those customers either down to a no-brainer entry offer or up to a premium commitment tier. The model tells you which direction to go.",
+    mobileText: {
+      what: "Mid-market pricing isn't neutral — it's the worst retention band in the category. Average tenure: 4–6 months.",
+      whyNow: "CAC is rising heading into Q2. At 4–6 month tenure, every ad dollar is a retention cost — not growth.",
+      potential: "$500K ARR at 25% monthly churn = replacing your customer base 3x per year. Fix positioning. Same spend reaches $2M.",
+      firstMove: "Pull 90 days of cancellations. Sort by price tier. If peak churn is in your mid-range — you're in the death band.",
+    },
   },
   {
     date: 'Thursday, March 26, 2026',
@@ -295,7 +301,7 @@ function FeedCard({ entry, faded }: { entry: typeof FEED_ENTRIES[0]; faded?: boo
         <div className="space-y-0">
           <p className="text-white/75 text-sm leading-relaxed">
             <span className="text-white font-semibold">• What: </span>
-            <span className="sm:hidden">{truncate(entry.what, 120)}</span>
+            <span className="sm:hidden">{entry.mobileText?.what ?? truncate(entry.what, 120)}</span>
             <span className="hidden sm:inline">{entry.what}</span>
           </p>
 
@@ -303,7 +309,7 @@ function FeedCard({ entry, faded }: { entry: typeof FEED_ENTRIES[0]; faded?: boo
 
           <p className="text-white/75 text-sm leading-relaxed">
             <span className="text-white font-semibold">• Why now: </span>
-            <span className="sm:hidden">{truncate(entry.whyNow, 100)}</span>
+            <span className="sm:hidden">{entry.mobileText?.whyNow ?? truncate(entry.whyNow, 100)}</span>
             <span className="hidden sm:inline">{entry.whyNow}</span>
           </p>
 
@@ -311,7 +317,7 @@ function FeedCard({ entry, faded }: { entry: typeof FEED_ENTRIES[0]; faded?: boo
 
           <p className="text-white/75 text-sm leading-relaxed">
             <span className="text-white font-semibold">• Potential: </span>
-            <span className="sm:hidden">{truncate(entry.potential, 100)}</span>
+            <span className="sm:hidden">{entry.mobileText?.potential ?? truncate(entry.potential, 100)}</span>
             <span className="hidden sm:inline">{entry.potential}</span>
           </p>
 
@@ -319,7 +325,7 @@ function FeedCard({ entry, faded }: { entry: typeof FEED_ENTRIES[0]; faded?: boo
 
           <p className="text-white/75 text-sm leading-relaxed">
             <span className="text-white font-semibold">• First move: </span>
-            <span className="sm:hidden">{truncate(entry.firstMove, 120)}</span>
+            <span className="sm:hidden">{entry.mobileText?.firstMove ?? truncate(entry.firstMove, 120)}</span>
             <span className="hidden sm:inline">{entry.firstMove}</span>
           </p>
         </div>
