@@ -4,11 +4,11 @@ import Footer from '../components/Footer'
 const FEED_ENTRIES = [
   {
     date: 'Friday, March 27, 2026',
-    opportunity: 'Revolutionize Aging with Reversal Tech',
-    what: "New research suggests aging can be reversed, potentially curing diseases like Alzheimer's and cancer.",
-    whyNow: "With governments and pharma companies racing to control this technology, early adopters could gain significant competitive advantages in healthcare and longevity markets.",
-    potential: "Countries that invest in age-reversal technologies could see trillions saved in chronic disease costs. Companies can tap into a new market worth $2 trillion annually in aging drugs alone.",
-    firstMove: "Research companies working on age-reversal technology to identify potential partnerships or investments.",
+    opportunity: 'The SMB Middle Market Is a Death Zone',
+    what: "Alex Hormozi released data showing service businesses in the $1M–$10M range face the worst churn rates in the market — customers stay 4-6 months on average. The cause isn't product quality. It's price positioning. Businesses stuck in the middle (not cheap enough to be a no-brainer, not premium enough to command loyalty) get churned by customers who see them as interchangeable. The fix is a forced choice: go ultra-low-ticket for volume or high-ticket for commitment.",
+    whyNow: "Customer acquisition costs are up across every channel in 2026. If you're replacing your customer base every 5 months, every dollar of ad spend is just covering churn, not building a business. Operators who reprice in Q2 — either compressing to a clear value entry point or raising to a premium anchor — will compound through Q3 while competitors stay on the treadmill.",
+    potential: "A service business at $500K ARR with 25% monthly churn is replacing 3x its customer base every year. Drop churn to 10% through repositioning and the same acquisition spend builds an asset instead of a leaky bucket. That's the difference between a $500K business and a $2M business with identical marketing spend.",
+    firstMove: "Map your churn by price tier this week. Pull your last 90 days of cancellations. Identify the price point where customers churn fastest. That's your death zone. Make a decision: compress below it or rise above it. Sitting in the middle is the only wrong answer.",
   },
   {
     date: 'Thursday, March 26, 2026',
