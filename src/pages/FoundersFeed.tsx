@@ -3,6 +3,14 @@ import Footer from '../components/Footer'
 
 const FEED_ENTRIES = [
   {
+    date: 'Friday, March 27, 2026',
+    opportunity: 'Revolutionize Aging with Reversal Tech',
+    what: "New research suggests aging can be reversed, potentially curing diseases like Alzheimer's and cancer.",
+    whyNow: "With governments and pharma companies racing to control this technology, early adopters could gain significant competitive advantages in healthcare and longevity markets.",
+    potential: "Countries that invest in age-reversal technologies could see trillions saved in chronic disease costs. Companies can tap into a new market worth $2 trillion annually in aging drugs alone.",
+    firstMove: "Research companies working on age-reversal technology to identify potential partnerships or investments.",
+  },
+  {
     date: 'Thursday, March 26, 2026',
     opportunity: 'The Retention Benchmark Nobody Is Tracking',
     what: "School.com released platform-wide retention data from 22M+ users across recurring-revenue communities and services. The benchmark gap is significant: best-in-class businesses retain 90%+ monthly (under 10% churn). Platform average is 80%. The danger zone — where acquisition spend is just refilling a leaky bucket — starts below 70% monthly retention. Most operators in the $1M–$10M range have no idea which bucket they're in because they're not tracking joins vs. cancels as a primary KPI.",
