@@ -226,6 +226,9 @@ function ShareIcon() {
 // ---------------------------------------------------------------------------
 // FeedCard component
 // ---------------------------------------------------------------------------
+const truncate = (text: string, limit: number) =>
+  text.length > limit ? text.slice(0, limit) + '...' : text
+
 function FeedCard({ entry, faded }: { entry: typeof FEED_ENTRIES[0]; faded?: boolean }) {
   const shareRef = useRef<HTMLButtonElement>(null)
 
@@ -292,28 +295,32 @@ function FeedCard({ entry, faded }: { entry: typeof FEED_ENTRIES[0]; faded?: boo
         <div className="space-y-0">
           <p className="text-white/75 text-sm leading-relaxed">
             <span className="text-white font-semibold">• What: </span>
-            {entry.what}
+            <span className="sm:hidden">{truncate(entry.what, 120)}</span>
+            <span className="hidden sm:inline">{entry.what}</span>
           </p>
 
           <div className="border-t my-4" style={{ borderColor: 'rgba(255,255,255,0.06)' }} />
 
           <p className="text-white/75 text-sm leading-relaxed">
             <span className="text-white font-semibold">• Why now: </span>
-            {entry.whyNow}
+            <span className="sm:hidden">{truncate(entry.whyNow, 100)}</span>
+            <span className="hidden sm:inline">{entry.whyNow}</span>
           </p>
 
           <div className="border-t my-4" style={{ borderColor: 'rgba(255,255,255,0.06)' }} />
 
           <p className="text-white/75 text-sm leading-relaxed">
             <span className="text-white font-semibold">• Potential: </span>
-            {entry.potential}
+            <span className="sm:hidden">{truncate(entry.potential, 100)}</span>
+            <span className="hidden sm:inline">{entry.potential}</span>
           </p>
 
           <div className="border-t my-4" style={{ borderColor: 'rgba(255,255,255,0.06)' }} />
 
           <p className="text-white/75 text-sm leading-relaxed">
             <span className="text-white font-semibold">• First move: </span>
-            {entry.firstMove}
+            <span className="sm:hidden">{truncate(entry.firstMove, 120)}</span>
+            <span className="hidden sm:inline">{entry.firstMove}</span>
           </p>
         </div>
 
