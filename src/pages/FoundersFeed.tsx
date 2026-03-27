@@ -3,6 +3,14 @@ import Footer from '../components/Footer'
 
 const FEED_ENTRIES = [
   {
+    date: 'Thursday, March 26, 2026',
+    opportunity: 'The Retention Benchmark Nobody Is Tracking',
+    what: "School.com released platform-wide retention data from 22M+ users across recurring-revenue communities and services. The benchmark gap is significant: best-in-class businesses retain 90%+ monthly (under 10% churn). Platform average is 80%. The danger zone — where acquisition spend is just refilling a leaky bucket — starts below 70% monthly retention. Most operators in the $1M–$10M range have no idea which bucket they're in because they're not tracking joins vs. cancels as a primary KPI.",
+    whyNow: "Paid acquisition costs are elevated and trending higher. Every operator is focused on the top of funnel. That's the wrong lever. If you're at 80% retention and your competitor is at 90%, they compound every month while you rebuild. The gap compounds silently until it's a structural disadvantage. Q2 is the window to fix it before Q3 ad costs spike again.",
+    potential: "For a recurring revenue business at $50K MRR, moving from 20% monthly churn to 10% churn = $60K+ in additional annual revenue without acquiring a single new customer. At $200K MRR the math becomes $240K/yr recovered. It's the highest-ROI lever available in any recurring model — and it's invisible until you measure it.",
+    firstMove: "Pull your last 90 days of data. Count monthly joins and monthly cancels. Calculate your retention rate. Benchmark it against these three numbers — 90% (best-in-class), 80% (average), 70% (danger zone). If you don't know your number, that's your first move: know your number before you spend another dollar on acquisition.",
+  },
+  {
     date: 'Wednesday, March 25, 2026',
     opportunity: "Meta's Creator-Commerce Integration",
     what: "At Shoptalk 2026, Meta announced major updates to creator-commerce infrastructure: cleaner product tagging in Reels, deeper catalog integrations, and expanded affiliate partnerships. Multiple industry sources flagged the same signal: creators are now the primary product discovery channel. The gap between seeing a product and buying it is collapsing.",
