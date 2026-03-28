@@ -36,6 +36,7 @@ export default function Navbar() {
         <div className="hidden sm:flex items-center gap-6">
           <a href="/#how-it-works" className="text-white/60 hover:text-white text-sm transition-colors">How It Works</a>
           <a href="/founders-feed" className="text-white/60 hover:text-white text-sm transition-colors">Founders Feed</a>
+          <a href="/blog" className="text-white/60 hover:text-white text-sm transition-colors">Blog</a>
           <a href="/#waitlist" className="text-white/60 hover:text-white text-sm transition-colors">Founding Access</a>
           <a href="/#faq" className="text-white/60 hover:text-white text-sm transition-colors">FAQ</a>
           <a href="/#waitlist" className="btn-primary text-sm py-2 px-5">Join the Waitlist</a>
@@ -64,6 +65,7 @@ export default function Navbar() {
         <div className="max-w-5xl mx-auto flex flex-col gap-1 pt-3 pb-4">
           <a href="/#how-it-works" onClick={close} className="text-white/70 hover:text-white py-2.5 text-sm border-b border-white/5 transition-colors">How It Works</a>
           <a href="/founders-feed" onClick={close} className="text-white/70 hover:text-white py-2.5 text-sm border-b border-white/5 transition-colors">Founders Feed</a>
+          <a href="/blog" onClick={close} className="text-white/70 hover:text-white py-2.5 text-sm border-b border-white/5 transition-colors">Blog</a>
           <a href="/#waitlist" onClick={close} className="text-white/70 hover:text-white py-2.5 text-sm border-b border-white/5 transition-colors">Founding Access</a>
           <a href="/#faq" onClick={close} className="text-white/70 hover:text-white py-2.5 text-sm border-b border-white/5 transition-colors">FAQ</a>
           <a href="/#waitlist" onClick={close} className="btn-primary text-center mt-3 text-sm py-3">Join the Waitlist</a>

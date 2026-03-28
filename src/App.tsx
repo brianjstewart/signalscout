@@ -9,6 +9,7 @@ import FoundingMember from './components/FoundingMember'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import FoundersFeed from './pages/FoundersFeed'
+import Blog from './pages/Blog'
 
 function LandingPage() {
   return (
@@ -34,6 +35,10 @@ function App() {
 
   if (path === '/founders-feed') {
     return <FoundersFeed />
+  }
+
+  if (path === '/blog') {
+    return <Blog />
   }
 
   return <LandingPage />

@@ -1,7 +1,8 @@
-import { FEED_ENTRIES } from '../data/feedEntries'
+import { FEED_ENTRIES, getSlug } from '../data/feedEntries'
 
 export default function Hero() {
   const todayEntry = FEED_ENTRIES[0]
+  const todaySlug = getSlug(todayEntry.opportunity)
   const truncate = (text: string, limit: number) =>
     text.length > limit ? text.slice(0, limit) + '…' : text
 
@@ -119,14 +120,20 @@ export default function Hero() {
                 {/* Closing divider */}
                 <div className="border-t border-white/10 mt-4" />
 
-                {/* Founders Feed link */}
-                <div className="mt-4 text-center">
+                {/* Links */}
+                <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3">
                   <a
-                    href="/founders-feed"
-                    className="text-sm font-medium transition-colors duration-200"
+                    href={`/blog?post=${todaySlug}`}
+                    className="text-sm font-semibold transition-colors duration-200"
                     style={{ color: '#A855F7' }}
                   >
-                    See all opportunities in the Founders Feed →
+                    Read full analysis →
+                  </a>
+                  <a
+                    href="/founders-feed"
+                    className="text-sm font-medium transition-colors duration-200 text-white/45 hover:text-white/70"
+                  >
+                    See all opportunities →
                   </a>
                 </div>
               </div>
