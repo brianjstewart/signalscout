@@ -9,6 +9,20 @@ export function getSlug(opportunity: string): string {
 
 export const FEED_ENTRIES = [
   {
+    date: 'Saturday, March 28, 2026',
+    opportunity: 'The GrowthOS Commoditization Clock Is Running',
+    what: "Low-code and no-code AI tools are collapsing the technical barrier to build what specialized marketing systems do. The operators with documented proof cases — real client results, real numbers, real methodology — have a 12-month window before that proof becomes table stakes. After that window closes, the tool is indistinguishable from every other AI marketing platform. The differentiator is not the stack. It is the receipts.",
+    whyNow: "HubSpot, Salesforce, Shopify, and a dozen AI-native tools are all racing to commoditize the same workflows. The operators who document and publish their proof cases now — specific CPL drops, revenue lifts, margin improvements with named verticals — lock in authority before the market catches up. Every month of delay is market share ceded to the next operator who publishes first.",
+    potential: "A documented methodology with 3-5 published case studies commands 3-5x the pricing of an undocumented alternative. For a $3,000/mo engagement, that delta is $9,000-$15,000/mo in pricing power — purely from proof visibility. Operators who build the case study library now will price at a premium for years after the commodity wave hits everyone else.",
+    firstMove: "Pull your last 3 client engagements. For each one, find one number: CPL drop, ROAS lift, revenue delta, margin improvement. Write one sentence per result. That is your proof stack. Publish the first one this week — not a case study, just the number and what caused it. The library starts with one post.",
+    mobileText: {
+      what: "Low-code AI tools are commoditizing marketing systems fast. Operators with documented proof cases have a 12-month window before the receipts become table stakes. After that — you're just another platform.",
+      whyNow: "HubSpot, Salesforce, Shopify are all racing to own the same workflows. Operators who publish real results now lock in authority before the market levels. Every month of delay is pricing power lost.",
+      potential: "Documented methodology with 3-5 case studies commands 3-5x the pricing of an undocumented alternative. On a $3K/mo engagement that's $9K-$15K/mo in pricing power — from proof visibility alone.",
+      firstMove: "Pull your last 3 engagements. Find one number each: CPL drop, ROAS lift, revenue delta. Write one sentence per result. Publish the first one this week. The case study library starts with one post.",
+    },
+  },
+  {
     date: 'Friday, March 27, 2026',
     opportunity: 'The Pricing Middle Ground Is Killing Service Businesses',
     what: "Churn data across thousands of service businesses in the $1M–$10M range reveals a consistent pattern: mid-market pricing — not cheap enough to remove buyer hesitation, not premium enough to signal commitment — produces the worst retention rates in the category. Average customer tenure at this price band runs 4-6 months. The businesses escaping this trap share one trait: a deliberate choice to either compress to a frictionless entry price or anchor at a premium that attracts buyers who stay.",
