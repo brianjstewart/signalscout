@@ -87,11 +87,11 @@ async function generateShareCard(entry: typeof FEED_ENTRIES[0]): Promise<Blob> {
   ctx.textBaseline = 'top'
   ctx.fillText('SignalScout', 60, 52)
 
-  // "signalscout.io" — top right (for balance, specs say bottom-right but wordmark is top-left per spec)
+  // "getsignalscout.com" — top right (for balance, specs say bottom-right but wordmark is top-left per spec)
   ctx.fillStyle = 'rgba(255,255,255,0.4)'
   ctx.font = '16px Montserrat, sans-serif'
   ctx.textAlign = 'right'
-  ctx.fillText('signalscout.io', SIZE - 60, SIZE - 56)
+  ctx.fillText('getsignalscout.com', SIZE - 60, SIZE - 56)
   ctx.textAlign = 'left'
 
   // "OPPORTUNITY OF THE DAY" label
